@@ -160,7 +160,7 @@ aside img.asides-light {
 }
 aside.asides-yang {
 	margin: 0 .7em 0 .3em;
-	padding: 10em 0 13em 0;
+	padding: 10em 0 8em 0;
 	background-color: lightpink;
 }
 section.Einstein {
@@ -184,7 +184,7 @@ section.funny {
 }
 section.funny video {
 	width: 80%;
-	padding: .5em;
+	padding: .4em;
 	margin: 0 0 .5em .5em;
 	display: flex;
 	background-color: white;

@@ -163,6 +163,9 @@ aside.asides-yang {
 	padding: 10em 0 8em 0;
 	background-color: lightpink;
 }
+aside.asides iframe {
+    width: 100%;
+}
 section.Einstein {
 	padding: 0 0 0 .7em;
 	margin: 0;

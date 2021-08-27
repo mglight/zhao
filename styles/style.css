@@ -7,7 +7,7 @@ html body {
 	font-size: 2vw;
 	background-color: #202020;
 	color: white;
-    border-width: 0;
+        border: none;
 }
 /*有链接的元素都取消默认的蓝色，并且不带下划线*/
 a:link {

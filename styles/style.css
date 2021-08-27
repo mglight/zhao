@@ -25,13 +25,12 @@ header {
 }
 header a {
 	width: 10vw;
-	height: 10vw;
 }
 header a:hover {
 	text-decoration: none;
 }
 header img {
-	max-width: 100%;
+	width: 100%;
 }
 /*实现标志的切换*/
 header img.logo-hover {

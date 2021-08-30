@@ -12,18 +12,18 @@ body {
 * {
 	box-sizing: border-box;
 }
-/*有链接的元素都取消默认的蓝色，并且不带下划线*/
+/* 有链接的元素都取消默认的蓝色，并且不带下划线 */
 a:link {
     color: inherit;
     text-decoration: none;
 }
-/*访问过的也不用变色*/
+/* 访问过的也不用变色 */
 a:visited {
     color: inherit;
 }
 header {
     height: 10vw;
-	background-color: black;
+    background-color: black;
     display: flex;
 }
 header a {
@@ -32,12 +32,12 @@ header a {
 header a:hover {
 	text-decoration: none;
 }
-/*实现标志的切换*/
+/* 实现标志的切换 */
 header img.logo-hover {
 	display: none;
 }
 header a:hover img.logo-default {
-    display: none;
+        display: none;
 }
 header a:hover img.logo-hover {
 	display: block;
@@ -50,7 +50,7 @@ nav a:hover {
 }
 nav {
     padding-left: 10vw;
-	background-color: #303030;
+    background-color: #303030;
 }
 nav ul {
     margin: 0;
@@ -67,7 +67,7 @@ main a:hover {
 	text-decoration: underline;
 }
 .universe {
-	width: 100%;
+    width: 100%;
     display: flex;
 }
 .content {
@@ -76,9 +76,9 @@ main a:hover {
     margin: 0;
 }
 .read {
-	width: 80%;
+    width: 80%;
     padding: .5vw;
-	background-color: #202020;
+    background-color: #202020;
 }
 .read .theme {
     width: 100%;
@@ -115,14 +115,14 @@ main a:hover {
     display: flex;
 }
 .read .black-hole h3 {
-	margin: 3.2em 1em 0 1.5em;
+    margin: 3.2em 1em 0 1.5em;
 }
 .read .black-hole img {
     width: 40%; 
 }
 .a,
 .b{
-	margin: 0 0 .3em 3em;
+    margin: 0 0 .3em 3em;
     font-size: .5em;
     color: rebeccapurple;
 }
@@ -133,16 +133,16 @@ aside {
 aside .light {
     width: 100%;
     padding: 3vw 0;
-	background-color: black;
+    background-color: black;
 }
 aside .light img {
     width: 100%;
 }
 aside .yang {
     width: 100%;
-	padding: 15vw .5vw 20vw .5vw;
+    padding: 15vw .5vw 20vw .5vw;
     margin: 0;
-	background-color: pink;
+    background-color: pink;
 }
 aside .yang img {
     width: 100%;
@@ -153,35 +153,35 @@ aside iframe {
     border: none;
 }
 .Einstein {
-	padding-left: 1vw;
-	display: flex;
+    padding-left: 1vw;
+    display: flex;
     margin: 0;
 }
 .Einstein .c {
     width: 80%;
     margin: 0;
     padding-top: 2vw;
-	text-align: center;
-	font-size: .6em;
-	background-color: #202020;
+    text-align: center;
+    font-size: .6em;
+    background-color: #202020;
 }
 .funny {
-	width: 20%;
-	background-color: pink;
+    width: 20%;
+    background-color: pink;
     display: block;
     margin: 0;
     padding: .5vw;
 }
 .funny .d {
     padding: .5vw;
-	margin: 0;
+    margin: 0;
     text-align: center;
-	color: black;
+    color: black;
     background-color: deepskyblue;
     border-radius: 2vw .5vw .5vw .5vw;
     font-size: .5em;
 }
-/*调整video的位置，对称！*/
+/* 调整video的位置，对称！ */
 .funny video {
     padding: 0;
     margin: 0;
@@ -191,7 +191,7 @@ aside iframe {
     display: flex;
     background: url("../images/问好.png") no-repeat 3% center/10%,url("../images/问好1.png") no-repeat 97% center/10%,white;
 }
-/*鼠标移动至链接元素会变得透明一点*/
+/* 鼠标移动至链接元素会变得透明一点 */
 .funny video:hover {
 	opacity: .7;
 }
@@ -206,14 +206,14 @@ footer {
 }
 .fleft {
 	width: 50%;
-    display: block;
+        display: block;
 }
 .fleft img {
 	width: 1.5vw;
 }
 address a:hover {
 	color: aqua;
-    text-decoration: none;
+        text-decoration: none;
 }
 .fleft img.QR-code {
 	display: none;
@@ -221,7 +221,7 @@ address a:hover {
 .fleft a:hover .WeChat {
 	display: none;
 }
-/*为什么标题旁的标志可以display: block,而这里不行？原因是这里的元素在<p>里面，而<p>里面只能放内联元素*/
+/* 为什么标题旁的标志可以display: block,而这里不行？原因是这里的元素在<p>里面，而<p>里面只能放内联元素 */
 .fleft a:hover .QR-code {  
 	display: inline;
 }
@@ -232,8 +232,8 @@ address a:hover {
 	opacity: .7;
 }
 .fright {
-	width: 50%;
-	margin-top: 4vw;
+    width: 50%;
+    margin-top: 4vw;
     display: block;
     text-align: right;
 }
@@ -241,7 +241,7 @@ address a:hover {
 	width: 1.5vw;
 }
 .end {
-	text-align: center;
+    text-align: center;
     margin: 0;
     padding-bottom: 2vw;
 }

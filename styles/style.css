@@ -120,8 +120,8 @@ main a:hover {
 .read .black-hole img {
     width: 40%; 
 }
-.a,
-.b{
+.read .hole .a,
+.read .hole .b{
     margin: 0 0 .3em 3em;
     font-size: .5em;
     color: rebeccapurple;
@@ -211,7 +211,7 @@ footer {
 .fleft img {
 	width: 1.5vw;
 }
-address a:hover {
+.fleft address a:hover {
 	color: aqua;
         text-decoration: none;
 }

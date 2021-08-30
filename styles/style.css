@@ -7,7 +7,9 @@ html body {
 	font-size: 2vw;
 	background-color: #202020;
 	color: white;
-        border: none;
+}
+* {
+    box-sizing: border-box;
 }
 /*有链接的元素都取消默认的蓝色，并且不带下划线*/
 a:link {
@@ -77,7 +79,7 @@ article {
 }
 article .left {
 	width: 80%;
-    padding: 1vw;
+    padding: .5vw;
 	background-color: #202020;
 }
 article .left .theme {
@@ -140,7 +142,6 @@ article .yang {
 	padding: 15vw .5vw 40vw .5vw;
     margin: 0;
 	background-color: pink;
-    box-sizing: border-box;
 }
 article .yang img {
     width: 100%;
@@ -166,7 +167,6 @@ article .right iframe {
 	width: 20%;
 	background-color: pink;
     display: block;
-    box-sizing: border-box;
     margin: 0;
     padding: .5vw;
 }
@@ -180,7 +180,6 @@ article .right iframe {
 }
 /*调整video的位置，对称！*/
 .funny video {
-    box-sizing: border-box;
     padding: 0;
     margin: 0;
     border-radius: 1.5vw;
@@ -200,6 +199,7 @@ footer {
 }
 .footers {
 	display: flex;
+	padding: 0 .5vw;
 }
 .fleft {
 	width: 50%;

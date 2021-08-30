@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
-html body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	font-family: "幼圆",serif;
@@ -119,7 +120,8 @@ main a:hover {
 .read .black-hole img {
     width: 40%; 
 }
-#a,#b {
+.a,
+.b{
 	margin: 0 0 .3em 3em;
     font-size: .5em;
     color: rebeccapurple;
@@ -155,7 +157,7 @@ aside iframe {
 	display: flex;
     margin: 0;
 }
-.Einstein #c {
+.Einstein .c {
     width: 80%;
     margin: 0;
     padding-top: 2vw;
@@ -170,7 +172,7 @@ aside iframe {
     margin: 0;
     padding: .5vw;
 }
-.funny #d {
+.funny .d {
     padding: .5vw;
 	margin: 0;
     text-align: center;

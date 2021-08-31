@@ -177,8 +177,8 @@ aside iframe {
     border-radius: 1.5vw;
     width: 100%;
     border: .7vw dotted deepskyblue;
-    display: flex;
-    background: url("../images/问好.png") no-repeat 3% center/10%,url("../images/问好1.png") no-repeat 97% center/10%,white;
+    display: block;
+    background-color: white; 
 }
 /* 鼠标移动至链接元素会变得透明一点 */
 .funny video:hover {

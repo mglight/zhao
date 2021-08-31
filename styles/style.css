@@ -80,14 +80,8 @@ main a:hover {
     padding: .5vw;
     background-color: #202020;
 }
-.read .theme {
-    width: 100%;
-}
 .read .theme h2 {
     text-align: center;
-}
-.read .superluminal {
-    width: 100%;
 }
 .read .superluminal h3 {
 	margin-left: 1.5em;
@@ -123,9 +117,14 @@ aside .light {
     width: 100%;
     padding: 3vw 0;
     background-color: black;
+    display: block;
 }
 aside .light img {
     width: 100%;
+}
+aside .aidi {
+    padding: 0;
+    background-color: unset;
 }
 aside .yang {
     width: 100%;

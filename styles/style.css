@@ -111,14 +111,12 @@ main a:hover {
 .read .hole {
     width: 100%;
 }
-.read .black-hole {
-    display: flex;
-}
-.read .black-hole h3 {
+.read .hole h3 {
     margin: 3.2em 1em 0 1.5em;
 }
-.read .black-hole img {
+.read .hole img {
     width: 40%; 
+    float: right;
 }
 .read .hole .a,
 .read .hole .b{
@@ -150,7 +148,7 @@ aside .yang img {
 aside iframe {
     width: 100%;
     max-height: 10vw;
-    border: none;
+    border: 0;
 }
 .Einstein {
     padding-left: 1vw;

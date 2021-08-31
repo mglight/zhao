@@ -98,15 +98,13 @@ main a:hover {
 .read .color {
     width: 100%;
 }
-.read .three-color {
-    display: flex;
-}
-.read .three-color h3 {
+.read .color h3 {
 	padding: 2em 2em;
-    margin: 0;
+        margin: 0;
 }
-.read .three-color img {
+.read .color img {
     width: 40%;
+    float: right;
 }
 .read .hole {
     width: 100%;

@@ -95,22 +95,15 @@ main a:hover {
 .read .superluminal img {
 	width: 20%;
 }
-.read .color {
-    width: 100%;
-}
 .read .color h3 {
-	padding: 2em 2em;
-        margin: 0;
+        margin: 1em 2em;
 }
 .read .color img {
     width: 40%;
     float: right;
 }
-.read .hole {
-    width: 100%;
-}
 .read .hole h3 {
-    margin: 3.2em 1em 0 1.5em;
+    margin: 2em 1em 0 1.5em;
 }
 .read .hole img {
     width: 40%; 

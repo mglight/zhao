@@ -140,6 +140,8 @@ aside iframe {
     max-height: 10vw;
     border: 0;
     display: block;
+    position: relative;
+    bottom: 0;
 }
 .Einstein {
     padding-left: 1vw;

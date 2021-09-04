@@ -102,6 +102,7 @@ main a:hover {
 .read .hole img {
     width: 40%; 
     float: right;
+    shape-outside:url("../images/三原色1.svg")
 }
 .read .hole .a,
 .read .hole .b{

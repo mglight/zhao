@@ -224,6 +224,9 @@ footer a {
     grid-row: 1;
     padding: 9rem 0 0 1.5rem;
 }
+.fleft p {
+    display: inline-block;
+}
 .fleft address {
     margin: 2rem 0;
 }

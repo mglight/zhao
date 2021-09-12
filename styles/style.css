@@ -80,27 +80,20 @@ header .logo:hover img.b {
 main {
     font-size: 3rem;
 	display: grid;
-    grid-template-areas: "blanka image blankb"
-                         "blanka content blankb";
     grid-template-columns: 1fr 8fr 1fr;
 	background-color: #202020;
     line-height: 1.5;
 }
 .universe {
-    grid-area: image;
+    grid-column: 2/3;
+    grid-row: 1;
 }
 .universe img {
 	width: 100%;
 }
-.blank-a {
-    grid-area: blanka;
-    background-color: #202020;
-}
-.blank-b {
-    grid-area: blankb;
-}
 .content {
-    grid-area: content;
+    grid-column: 2/3;
+    grid-row: 2;
     padding-left: 1.5rem;
     display: grid;
     grid-template-columns: 4fr 1fr;
@@ -155,7 +148,7 @@ aside div {
     flex: 1;
 }
 aside .nav,
-aside .blank-c {
+aside .blank {
     flex: 1 250px;
 }
 aside .light {

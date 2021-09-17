@@ -230,9 +230,12 @@ aside .yang {
 aside .yang img {
     width: 100%;
     padding: 3px 0;
+    filter: drop-shadow(3px 3px 3px black);
+    transition: transform 1s;
 }
 aside .yang img:hover {
-    filter: contrast(120%);
+    filter: contrast(120%) drop-shadow(3px 3px 3px black);
+    transform: translate(-50px, -50px) scale(1.1);
 }
 aside .funny {
     flex: 2;
@@ -308,7 +311,7 @@ footer .end a:hover {
 }
 .fleft a:hover img.wangyiyun,
 .fright a:hover img {
-    filter: brightness(2);
+    transform: scale(1.2);
 }
 .fright {
 	grid-column: 3/4;

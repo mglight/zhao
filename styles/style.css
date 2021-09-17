@@ -221,7 +221,8 @@ aside .nav ul li:nth-child(3) a:hover ol {
     display: initial;
 }
 aside .nav ol li:hover {
-    background-color: white;
+    transition: transform 0.2s;
+    transform: scale(1.1);
 }
 aside .yang {
     flex: 3;

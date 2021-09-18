@@ -48,15 +48,15 @@ img {
     display: flex;
 }
 header {
-	background-color: black;
+    background-color: black;
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
+    max-height: 150px;
 }
 header .logo {
     grid-column: 1;
     grid-row: 1;
     max-width: 150px;
-    max-height: 150px;
 }
 header div:last-child {
     grid-column: 2;

@@ -55,6 +55,8 @@ header {
 header .logo {
     grid-column: 1;
     grid-row: 1;
+    max-width: 150px;
+    max-height: 150px;
 }
 header div:last-child {
     grid-column: 2;

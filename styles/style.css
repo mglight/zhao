@@ -51,12 +51,10 @@ header {
     background-color: black;
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
-    max-height: 150px;
 }
 header .logo {
     grid-column: 1;
     grid-row: 1;
-    max-width: 150px;
 }
 header div:last-child {
     grid-column: 2;
@@ -142,13 +140,13 @@ main {
 }
 .read .hole p:nth-of-type(1) a img {
     width: 200px;
+    position: absolute;
+    left: 0;
+    bottom: 40px;
     display: none;
 }
 .read .hole p:nth-of-type(1) a:hover img {
-    display: initial;
-    position: absolute;
-    bottom: 40px;
-    left: 0;
+    display: initial; 
 }
 aside {
 	grid-column: 2;

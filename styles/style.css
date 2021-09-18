@@ -163,14 +163,51 @@ aside .blank {
     flex: 1 250px;
 }
 aside .light {
-    flex: 2;
+    flex: 2; 
+    position: relative;
 }
 aside .light img {
     width: 100%;
 }
-aside .light img:first-child {
+aside .light img:nth-of-type(1) {
+  position: relative;
   padding: 4.5rem 0;
   background-color: black;
+  z-index: 3;
+}
+aside .light label {
+    display: flex;
+    font-size: 2.5rem;
+    background-color: pink;
+    border-radius: 10px;
+    position: absolute;
+    top: 380px;
+    z-index: 2;
+}
+aside .light label:hover {
+    color: deepskyblue;
+}
+aside .light label:active {
+    background-color: deepskyblue;
+    color: white;
+}
+aside .light input {
+    position: fixed;
+    right: -500px;
+}
+aside .light img:nth-of-type(2) {
+    position: relative;
+    z-index: 0;
+}
+aside .light img:nth-of-type(3) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: top 1s;
+}
+aside .light input:checked + img + img {
+    top: 210px;
 }
 aside .nav ul {
     list-style-type: none;
@@ -208,13 +245,13 @@ aside .nav ol li:nth-of-type(6) {
 aside .nav ol li:nth-of-type(7) {
     background-color: purple;
 }
-aside .nav ul li:nth-child(3) a {
+aside .nav ul li:nth-child(3) {
     position: relative;
 }
-aside .nav ol {
+aside .nav ul li:nth-child(3) ol {
     position: absolute;
     top: 0;
-    left: 114.883px;
+    left: 100%;
     display: none;
 }
 aside .nav ul li:nth-child(3) a:hover ol {

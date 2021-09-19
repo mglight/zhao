@@ -169,6 +169,7 @@ aside .blank {
 }
 aside .light {
     flex: 2; 
+    padding-bottom: 91px;
     position: relative;
 }
 aside .light img {
@@ -186,7 +187,7 @@ aside .light label {
     background-color: pink;
     border-radius: 10px;
     position: absolute;
-    top: 380px;
+    top: 70%;
     z-index: 2;
 }
 aside .light label:hover {
@@ -212,7 +213,7 @@ aside .light img:nth-of-type(3) {
     transition: top 1s;
 }
 aside .light input:checked + img + img {
-    top: 210px;
+    top: 50%;
 }
 aside .nav ul {
     list-style-type: none;

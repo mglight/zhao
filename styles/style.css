@@ -1,0 +1,426 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+	font-family: 微软雅黑, 黑体, arial, sans-serif;
+	font-size: 10px;
+	background-color: #202020;
+	color: white;
+}
+a {
+    border-radius: 2px 2px;
+    padding-bottom: 3px;
+    border: 0;
+}
+a:link {
+    color: white;
+    text-decoration: none;
+}
+a {
+    border-bottom: 2px solid white;
+}
+a:visited {
+    color: gray;
+    border-color: gray;
+}
+a:focus {
+    outline: none;
+    background-color: white;
+    color: black;
+}
+a:hover {
+    color: deepskyblue;
+    border-color: deepskyblue;
+}
+a:active {
+    background-color: pink;
+}
+img {
+    display: flex;
+}
+header {
+    background-color: black;
+}
+header div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (min-width: 1000px) {
+header {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+}
+header .logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+header div:last-child {
+    grid-column: 2;
+    grid-row: 1;
+}
+}
+@media screen and (max-width: 999px) {
+header {
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+}
+header .logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+header div:last-child {
+    grid-column: 2;
+    grid-row: 1;
+}
+}
+@media screen and (max-width: 500px) {
+header {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+header .logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+header div:last-child {
+    grid-column: 2;
+    grid-row: 1;
+}
+}
+header h1 {
+    font-size: calc(1rem + 3.5vw);
+    text-align: center;
+}
+/* 实现标志的切换 */
+header img.b {
+	display: none;
+}
+header .logo:hover img.a {
+    display: none;
+}
+header .logo:hover img.b {
+	display: flex;
+}
+main {
+    font-size: calc(1rem + 1.5vw);
+    background-color: #202020;
+    line-height: 1.5;
+}
+@media screen and (min-width: 770px) {
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+}
+@media screen and (max-width: 769px) {
+main {
+    width: 100%;
+}
+}
+.universe img {
+	width: 100%;
+}
+.content {
+    padding-left: calc(0.5rem + 0.5vw);
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    background-color: black;
+}
+.read {
+    grid-column: 1;
+    grid-row: 1;
+    padding: calc(0.3rem + 0.3vw);
+	background-color: #202020;
+}
+.read p {
+    text-indent: calc(2rem + 3vw);
+}
+.read .theme h2 {
+    margin: calc(1rem + 1.5vw) 0;
+    text-align: center;
+}
+.read .superluminal h3 {
+	text-align: center;
+    padding-bottom: calc(0.5rem + 1.5vw);
+}
+.read .color h3 {
+    text-align: center;
+    padding-bottom: calc(0.5rem + 1.5vw);
+}
+.read .color img {
+    width: 30%;
+    float: right;
+    shape-outside: url("../images/三原色.svg");
+}
+.read .hole h3 {
+	text-align: center;
+    padding-bottom: calc(0.5rem + 1.5vw);
+}
+.read .hole img {
+    width: 35%; 
+    float: right;
+}
+.read .hole p:last-child {
+    font-size: calc(0.5rem + 1.5vw);
+    padding: calc(0.5rem + 1.5vw) 0 0 calc(2rem + 3vw);
+    text-indent: 0;
+} 
+.read .hole p:last-child a {
+    padding-bottom: 1px;
+}  
+.read .hole p:nth-of-type(1) a {
+    position: relative;
+}
+.read .hole p:nth-of-type(1) a img {
+    width: 20vw;
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    display: none;
+}
+.read .hole p:nth-of-type(1) a:hover img {
+    display: initial;
+}
+aside {
+	grid-column: 2;
+    grid-row: 1;
+    background-color: pink;
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+}
+aside .nav {
+    font-size: calc(1rem + 1vw);
+    padding: calc(1rem + 2vw) 0;
+}
+aside .light {
+    position: relative;
+}
+aside .light img {
+    width: 100%;
+}
+aside .light picture:nth-of-type(1) img {
+    position: relative;
+    padding: calc(1.5rem + 2.5vw) 0;
+    background-color: black;
+    z-index: 3;
+}
+aside .light label {
+    display: flex;
+    font-size: calc(0.5rem + 1.5vw);
+    position: absolute;
+    top: 70%;
+    left: 0;
+    z-index: 2;
+}
+aside .light label:hover {
+    color: deepskyblue;
+}
+aside .light label:active {
+    color: lightgreen;
+}
+aside .light input {
+    position: fixed;
+    right: -500px;
+}
+aside .light picture:nth-of-type(2) img {
+    position: relative;
+    z-index: 0;
+}
+aside .light picture:nth-of-type(3) img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: top 1s;
+}
+aside .light input:checked + picture + picture img {
+    top: 50%;
+}
+aside .nav ul {
+    list-style-type: none;
+    text-align: right;
+}
+aside .nav a {
+    padding: 0 0.5vw 0 0;
+}
+aside .nav a:active {
+    background-color: lightgreen;
+}
+aside .nav ol li:nth-of-type(1) {
+    background-color: red;
+}
+aside .nav ol li:nth-of-type(2) {
+    background-color: orange;
+}
+aside .nav ol li:nth-of-type(3) {
+    background-color: yellow;
+}
+aside .nav ol li:nth-of-type(4) {
+    background-color: green;
+}
+aside .nav ol li:nth-of-type(5) {
+    background-color: cyan;
+}
+aside .nav ol li:nth-of-type(6) {
+    background-color: blue;
+}
+aside .nav ol li:nth-of-type(7) {
+    background-color: purple;
+}
+aside .nav ul li:nth-child(3) {
+    position: relative;
+}
+aside .nav ul li:nth-child(3) ol {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: none; 
+} 
+aside .nav ul li:nth-child(3) ol li {
+    list-style-type: none;
+    width: 100px;
+    height: 50px;
+}
+aside .nav ul li:nth-child(3) a:hover ol {
+    display: initial;
+}
+@media screen and (max-width: 769px) {
+aside .nav ul li:nth-child(3) a:hover ol {
+    display: none;
+}
+}
+aside .nav ol li:hover {
+    transition: transform 0.2s;
+    transform: scale(1.1);
+}
+aside .yang {
+    padding: 0 .5rem;
+    margin-bottom: calc(20rem + 30vw);
+}
+aside .yang img {
+    width: 100%;
+    padding: .5rem 0;
+    filter: drop-shadow(3px 3px 3px black);
+    transition: transform 0.7s;
+}
+aside .yang img:hover {
+    filter: contrast(120%) drop-shadow(3px 3px 3px black);
+    transform: rotate(5deg) scale(1.1);
+}
+aside .funny {
+    position: absolute;
+    bottom: 0;
+}
+aside .funny iframe {
+    border: 0;
+    width: 100%;
+    height: calc(3rem + 7vw);
+}
+aside .funny p {
+    color: black;
+    padding: 5px;
+    background-color: deepskyblue;
+    border-radius: 3rem .75rem .75rem .75rem;
+    font-size: calc(5px + 1vw);
+    font-weight: bold;
+    text-align: center;
+}
+aside .funny video {
+    width: 100%;
+    border-radius: 10%;
+    border: 1vw dotted deepskyblue;
+    background-color: white;
+    display: flex;
+}
+aside .funny video:hover {
+    opacity: .7;
+}
+footer {
+	font-size: calc(.5rem + 1vw);
+	background-color: #303030;
+    padding-bottom: calc(1rem + 1.5vw);
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 1fr;
+}
+footer img {
+    height: 24px;
+}
+@media screen and (max-width: 769px) {
+    footer {
+        grid-template-columns: 1fr 10fr 10fr 1fr;
+    }
+    footer img {
+        height: 10px;
+    }
+}
+footer a {
+    display: inline-block;
+    padding: 3px;
+    border: 0;
+}
+.fleft {
+    grid-column: 2/3;
+    grid-row: 1;
+    padding: calc(3rem + 6vw) 0 0 calc(.5rem + .5vw);
+}
+@media screen and (max-width: 769px) {
+    .fleft {
+        padding-left: 0;
+    }
+}
+.fleft p {
+    display: inline-block;
+}
+.fleft address {
+    margin: calc(.5rem + 1vw) 0;
+}
+.fleft address a,
+footer .end a {
+    height: unset;
+    padding: 1px;
+    border-bottom: 1px solid white;
+}
+.fleft address a:visited,
+footer .end a:visited {
+    border-color: gray;
+}
+.fleft address a:hover,
+footer .end a:hover {
+    border-color: deepskyblue;
+}
+.fleft img.QR-code {
+	display: none;
+}
+.fleft a:hover .WeChat {
+	display: none;
+}
+.fleft a:hover .QR-code {  
+	display: flex;
+}
+.fleft a:hover img.wangyiyun,
+.fright a:hover img {
+    transform: scale(1.1);
+}
+.fright {
+	grid-column: 3/4;
+    grid-row: 1;
+	padding-top: calc(3rem + 6vw);
+    text-align: right;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+footer .end {
+    grid-column: 2/4;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    padding-top: calc(2.5rem + 3vw);
+}

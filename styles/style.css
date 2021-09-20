@@ -132,6 +132,11 @@ main {
     grid-template-columns: 4fr 1fr;
     background-color: black;
 }
+@media screen and (max-width: 769px) {
+    .content {
+        padding: 0;
+    }
+}
 .read {
     grid-column: 1;
     grid-row: 1;

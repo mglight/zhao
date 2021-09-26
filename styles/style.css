@@ -57,9 +57,7 @@ header nav {
     display: flex;
 }
 header nav .welcome {
-    width: 38%;
-    height: 1.5em;
-    text-align: center;
+    padding-left: 5em;
 }
 header nav ul {
     list-style-type: none;

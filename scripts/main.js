@@ -1,4 +1,4 @@
-
+let heading = document.querySelector('.welcome');
 
 function identity() {
   let Name = prompt('请输入身份证：');
@@ -16,7 +16,7 @@ function again() {
   let Passwordb = prompt('确认您的密码：');
   if(localStorage.getItem('password')===Passwordb) {
     let User = localStorage.getItem('name');
-    alert('欢迎你:)');
+    heading.textContent = '欢迎你 ' + User;
   } else {
     alert('密码不正确！');
     again();

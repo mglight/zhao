@@ -114,7 +114,7 @@ aside .sidebar {
     font-size: .8em;
 }
 aside .sidebar>p {
-    margin-bottom: 2em;
+    margin: 2em 0;
 }
 aside .sidebar div {
     width: 12em;

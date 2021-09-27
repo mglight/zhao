@@ -7,7 +7,7 @@
     margin: 0;
 }
 html {
-	font: 10px/1.5 微软雅黑, Tahoma, sans-serif;
+	font: 10px/1.5 微软雅黑, 幼圆, Tahoma, sans-serif;
 	background-color: #fafafa;
 }
 body {
@@ -102,6 +102,7 @@ section .hole h5 {
 }  
 aside .poem {
     margin-bottom: 5em;
+    font-family: 幼圆;
     font-size: .9em;
 }
 aside .poem span {

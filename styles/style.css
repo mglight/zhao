@@ -67,6 +67,7 @@ header nav ul {
 }
 header picture img {
     width: 100%;
+    height: 100%;
 }
 main {
     max-width: 375px;
@@ -89,6 +90,7 @@ section h4 {
 }
 section img {
     width: 100%;
+    height: 100%;
     margin: 1em 0;
 }
 section .color p img {

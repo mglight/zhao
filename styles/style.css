@@ -112,7 +112,9 @@ aside .poem span {
 }
 aside .sidebar {
     font-size: .8em;
-    margin-top: 1em;
+}
+aside .sidebar>p {
+    margin-bottom: 2em;
 }
 aside .sidebar div {
     width: 12em;

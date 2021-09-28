@@ -1,7 +1,7 @@
 
 
 function identity() {
-  let Name = prompt('请输入身份证：');
+  let Name = prompt('请输入姓名：');
   localStorage.setItem('name', Name);
   password();
 }

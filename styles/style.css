@@ -54,7 +54,6 @@ header .logo img {
 header nav {
     padding: .75em 0;
     background-color: #fff;
-    display: flex;
 }
 header nav ul {
     list-style-type: none;

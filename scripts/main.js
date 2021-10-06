@@ -84,3 +84,27 @@ blue.onclick = function() {
   }
   
 }
+let select = document.querySelector('.watchthese select');
+let myimage = document.querySelector('.watchthese img');
+
+select.addEventListener('change', myphoto);
+
+function myphoto() {
+  let isit = select.value;
+  if(isit === 'a') {
+    myimage.src = "images/黑暗aa.webp";
+    myimage.title = "https://unsplash.com/photos/HQPJEEjHqSE?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink";
+  } else if(isit === 'b') {
+    myimage.src = "images/黑暗2aa.webp";
+    myimage.title = "https://unsplash.com/photos/gvb5EvxCYKE?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink";
+  } else if(isit === 'c') {
+    myimage.src = "images/蓝天aa.webp";
+    myimage.title = "https://unsplash.com/photos/gGy0MQyUM38?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink";
+  } else if(isit === 'd') {
+    myimage.src = "images/女孩aa.webp";
+    myimage.title = "https://unsplash.com/photos/HxyWQ6YPM80?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink";
+  } else {
+    myimage.src = "images/狗狗2aa.webp"; 
+    myimage.title = "https://unsplash.com/photos/-XW35nYkRnk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink";
+  }
+}

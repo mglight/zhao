@@ -101,6 +101,29 @@ section .color p img {
 section .hole h5 {
     padding: 1em;
 }  
+aside .watchthese {
+    margin-bottom: 10em;
+    text-align: right;
+}
+aside .watchthese .watchtheseok {
+    min-width: 328px;
+    min-height: 583px;
+    max-width: 382px;
+    max-height: 679px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #eee;
+} 
+aside .watchthese .watchtheseok img {
+    width: 100%;
+}
+aside .watchthese label {
+    font-size: .8em;
+}
+aside .watchthese select {
+   width: 5em;
+   border: 0;
+}
 aside .poem {
     margin-bottom: 5em;
     font-family: 幼圆;
@@ -178,6 +201,10 @@ footer a {
     main {
         max-width: 712px;
     }
+	aside .watchthese .watchtheseok {
+        max-width: 672px;
+        max-height: 1194.7px;
+    }
 }
 @media screen and (min-width: 1024px) {
     main {
@@ -190,6 +217,10 @@ footer a {
         flex-flow: column wrap;
         align-items: flex-end;
         justify-content: flex-end;
+    }
+	aside .watchthese .watchtheseok {
+        width: 16em;
+        height: 28.5em;
     }
     .poem {
         padding: 0 0 70em 4em;

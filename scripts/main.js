@@ -108,3 +108,33 @@ function myphoto() {
     myimage.title = "https://unsplash.com/photos/-XW35nYkRnk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink";
   }
 }
+let a = document.querySelectorAll('li a');
+let xiahx = document.querySelectorAll('li .x div');
+let m = 100;
+let n = 0 ;
+      for(let i=0; i<a.length; i++) {
+      a[i].addEventListener('pointerleave', loop); 
+        function loop() {
+          if(m>0) {
+            m -= 5; 
+            xiahx[i].style.width = m + '%';
+            requestAnimationFrame(loop);
+            if(m === 0) {
+              n = 0;
+            }
+        } 
+      }
+      
+      
+      a[i].addEventListener('pointerover', loopa); 
+        function loopa() {
+          if(n<100) {
+            n += 5;
+            xiahx[i].style.width = n + '%';
+            requestAnimationFrame(loopa);
+            if(n === 100) {
+              m = 100;
+            }
+        }   
+      } 
+    }

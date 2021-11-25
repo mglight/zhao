@@ -174,7 +174,7 @@ function savevideo() {
 
 let source = document.querySelector('video source');
 function displayVideo() {
-  let objectStore = db.transaction(['video']).objectStore('video');
+  let objectStore = db.transaction(['video'], 'readwrite').objectStore('video');
   let request = objectStore.getAll();
   request.addEventListener('success', function(e) {
     let URL = URL.createObjectURL(e.target.result);

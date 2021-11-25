@@ -16,6 +16,7 @@ self.addEventListener('install', function(e) {
   e.respondWith(
     caches.match(e.request).then(function(response) {
       return response || fetch(e.request);
+      console.log('抓取成功');
     })
   );
 });

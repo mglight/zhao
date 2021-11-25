@@ -159,7 +159,7 @@ request.onsuccess = function() {
 
 request.onupgradeneeded = function(e) {
   let db = e.target.result;
-  let objectStore = db.createObjectStore('video');
+  let objectStore = db.createObjectStore('video', { keyPath: 'id' } );
   console.log('Database setup complete');
 };
 
@@ -174,8 +174,8 @@ function savevideo() {
 
 let source = document.querySelector('video source');
 function displayVideo() {
-  let objectStore = db.transaction(['video'], 'readwrite').objectStore('video');
-  let request = objectStore.getAll();
+  let objectStore = db.transaction(['video']).objectStore('video');
+  let request = objectStore.get('id');
   request.addEventListener('success', function(e) {
     let URL = URL.createObjectURL(e.target.result);
     source.src = URL;  

@@ -143,3 +143,47 @@ if('serviceWorker' in navigator) {
              .register('/zhao/scripts/mglightsite.js')
              .then(function() { console.log('Service Worker Registered'); });
   }
+
+let db;
+window.addEventListener('load', function() {
+  let request = window.indexedDB.open('myvideo', 1);
+
+request.onerror = function() {
+  alert('数据库打开失败');
+};
+
+request.onsuccess = function() {
+  console.log('Database opened successfully');
+  db = request.result;
+};
+
+request.onupgradeneeded = function(e) {
+  let db = e.target.result;
+  let objectStore = db.createObjectStore('video');
+  console.log('Database setup complete');
+};
+
+function savevideo() {
+  let Blob = fetch('images/吹口哨.mp4').then(response => response.blob());
+  let objectStore = db.transaction(['video'], 'readwrite').objectStore('video');
+  let request = objectStore.add(Blob);
+  request.addEventListener('error', function() {
+    alert('视频存储失败');
+  });
+}
+
+let source = document.querySelector('video source');
+function displayVideo() {
+  let objectStore = db.transaction(['video']).objectStore('video');
+  let request = objectStore.getAll();
+  request.addEventListener('success', function(e) {
+    let URL = URL.createObjectURL(e.target.result);
+    source.src = URL;  
+    console.log('视频显示成功');
+  });
+  request.addEventListener('error', function() {
+    alert('视频显示失败');
+  });
+}
+  displayVideo();
+});

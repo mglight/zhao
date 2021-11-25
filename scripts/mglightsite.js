@@ -2,10 +2,10 @@ self.addEventListener('install', function(e) {
  e.waitUntil(
    caches.open('mglightsite').then(function(cache) {
      return cache.addAll([
-       '/',
-       '/index.html',
-       '/scripts/main.js',
-       '/styles/style.css'
+       '/zhao/',
+       '/zhao/index.html',
+       '/zhao/scripts/main.js',
+       '/zhao/styles/style.css'
      ]);
    })
  );

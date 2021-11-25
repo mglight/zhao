@@ -4,7 +4,7 @@ self.addEventListener('install', function(e) {
      return cache.addAll([
        '/zhao/',
        '/zhao/index.html',
-       '/zhao/script/main.js',
+       '/zhao/scripts/main.js',
        '/zhao/styles/style.css'
      ]);
    })

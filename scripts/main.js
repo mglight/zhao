@@ -164,7 +164,7 @@ request.onupgradeneeded = function(e) {
 };
 
 function savevideo() {
-  let Blob = fetch('images/吹口哨.mp4').then(response => response.blob());
+  let Blob = fetch('https://mglight.github.io/zhao/images/吹口哨.mp4').then(response => response.blob());
   let objectStore = db.transaction(['video'], 'readwrite').objectStore('video');
   let request = objectStore.add(Blob);
   request.addEventListener('error', function() {

@@ -164,7 +164,7 @@ request.onupgradeneeded = function(e) {
 };
 
 function savevideo() {
-  let Blob = fetch('https://mglight.github.io/zhao/images/吹口哨.mp4').then(response => response.blob());
+  let Blob = fetch('吹口哨.mp4').then(response => response.blob());
   let objectStore = db.transaction(['video'], 'readwrite').objectStore('video');
   let request = objectStore.add(Blob);
   request.addEventListener('error', function() {
@@ -178,12 +178,13 @@ function displayVideo() {
   let request = objectStore.get('id');
   request.addEventListener('success', function(e) {
     let URL = URL.createObjectURL(e.target.result);
-    source.src = URL;  
+    source.src = 'images/' + URL;  
     console.log('视频显示成功');
   });
   request.addEventListener('error', function() {
     alert('视频显示失败');
   });
 }
+  savevideo();
   displayVideo();
 });

@@ -140,6 +140,6 @@ let n = 0 ;
     }
 if('serviceWorker' in navigator) {
     navigator.serviceWorker
-             .register('/zhao/script/mglightsite.js')
+             .register('/zhao/scripts/mglightsite.js')
              .then(function() { console.log('Service Worker Registered'); });
   }

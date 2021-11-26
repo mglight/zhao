@@ -159,13 +159,13 @@ request.onsuccess = function() {
 
 request.onupgradeneeded = function(e) {
   let db = e.target.result;
-  let objectStore = db.createObjectStore('video', { keyPath: 'id' } );
+  let objectStore = db.createObjectStore('video', { keyPath: 'name' } );
   console.log('Database setup complete');
 };
 
 function savevideo() {
   let Blob = fetch('images/吹口哨.mp4').then(response => response.blob());
-  let objectStore = db.transaction('video', 'readwrite').objectStore('video');
+  let objectStore = db.transaction(['video'], 'readwrite').objectStore('video');
   let request = objectStore.add(Blob);
   request.addEventListener('error', function() {
     displayVideo();
@@ -177,8 +177,8 @@ function savevideo() {
 
 let source = document.querySelector('video source');
 function displayVideo() {
-  let objectStore = db.transaction('video').objectStore('video');
-  let request = objectStore.get('id');
+  let objectStore = db.transaction(['video']).objectStore('video');
+  let request = objectStore.get('name');
   request.addEventListener('success', function(e) {
     let URL = URL.createObjectURL(e.target.result);
     source.src = URL;  

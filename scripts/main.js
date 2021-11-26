@@ -160,6 +160,9 @@ request.onsuccess = function() {
 request.onupgradeneeded = function(e) {
   let db = e.target.result;
   let objectStore = db.createObjectStore('video', { keyPath: 'name' } );
+  if(objectStore) {
+    savevideo();
+  }
   console.log('Database setup complete');
 };
 
@@ -167,7 +170,7 @@ function savevideo() {
   let Blob = fetch('images/吹口哨.mp4').then(response => response.blob());
   let objectStore = db.transaction(['video'], 'readwrite').objectStore('video');
   let request = objectStore.add(Blob);
-  request.addEventListener('error', function() {
+  request.addEventListener('success', function() {
     displayVideo();
   });
   request.addEventListener('error', function() {
@@ -189,5 +192,4 @@ function displayVideo() {
     alert('视频显示失败');
   });
 }
-  savevideo();
 });

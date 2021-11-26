@@ -144,9 +144,57 @@ if('serviceWorker' in navigator) {
              .then(function() { console.log('Service Worker Registered'); });
   }
 
+let video = document.querySelector('aside video'); 
 let db;
-window.addEventListener('load', function() {
-  let request = window.indexedDB.open('myvideo', 1);
+window.onload = function() {
+let Blobb;
+let request2 = new XMLHttpRequest();
+      request2.open('GET', 'images/吹口哨.mp4');
+      request2.responseType = 'blob';
+      request2.onload = function() {
+         Blobb = { name: 'images/吹口哨.mp4', mp4blob: request2.response };
+      };
+      request2.send();
+
+setTimeout(savevideo, 1000);
+setTimeout(displayVideo, 2000);
+
+function savevideo() {
+  let objectStore = db.transaction(['video_os'], 'readwrite').objectStore('video_os');
+  let request = objectStore.add(Blobb);
+  request.onsuccess = function() {
+    console.log('视频存储成功');
+  };
+  request.onerror = function() {
+    console.log('视频存储失败');
+  };
+}
+
+function displayVideo() {
+  let objectStore = db.transaction(['video_os']).objectStore('video_os');
+  let request = objectStore.get('images/吹口哨.mp4');
+  request.onsuccess = function(e) {
+    let eee = e.target.result.mp4blob;
+    let source = document.createElement('source');
+    source.src = URL.createObjectURL(eee);
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    console.log('视频显示成功');
+  };
+  request.onerror = function() {
+    fetch('images/吹口哨.mp4')
+    .then(response => response.blob())
+    .then(function(Blob) {
+      let source = document.createElement('source');
+      source.src = URL.createObjectURL(Blob);
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      console.log('视频显示成功');
+    });
+  };
+}
+
+let request = window.indexedDB.open('videos_db', 1);
 
 request.onerror = function() {
   alert('数据库打开失败');
@@ -159,37 +207,9 @@ request.onsuccess = function() {
 
 request.onupgradeneeded = function(e) {
   let db = e.target.result;
-  let objectStore = db.createObjectStore('video', { keyPath: 'name' } );
-  if(objectStore) {
-    savevideo();
-  }
+  let objectStore = db.createObjectStore('video_os', { keyPath: 'name' } );
+  objectStore.createIndex('mp4blob', 'mp4blob', { unique: false });
   console.log('Database setup complete');
 };
 
-function savevideo() {
-  let Blob = fetch('images/吹口哨.mp4').then(response => response.blob());
-  let objectStore = db.transaction(['video'], 'readwrite').objectStore('video');
-  let request = objectStore.add(Blob);
-  request.addEventListener('success', function() {
-    displayVideo();
-  });
-  request.addEventListener('error', function() {
-    alert('视频存储失败');
-  });
-}
-
-let source = document.querySelector('video source');
-function displayVideo() {
-  let objectStore = db.transaction(['video']).objectStore('video');
-  let request = objectStore.get('name');
-  request.addEventListener('success', function(e) {
-    let URL = URL.createObjectURL(e.target.result);
-    source.src = URL;  
-    source.type = 'video/mp4';
-    console.log('视频显示成功');
-  });
-  request.addEventListener('error', function() {
-    alert('视频显示失败');
-  });
-}
-});
+};

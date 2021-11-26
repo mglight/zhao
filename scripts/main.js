@@ -182,6 +182,7 @@ function displayVideo() {
   request.addEventListener('success', function(e) {
     let URL = URL.createObjectURL(e.target.result);
     source.src = URL;  
+    source.type = 'video/mp4';
     console.log('视频显示成功');
   });
   request.addEventListener('error', function() {

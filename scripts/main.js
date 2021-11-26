@@ -156,8 +156,8 @@ let request2 = new XMLHttpRequest();
       };
       request2.send();
 
-setTimeout(savevideo, 1000);
-setTimeout(displayVideo, 2000);
+setTimeout(savevideo, 3000);
+setTimeout(displayVideo, 5000);
 
 function savevideo() {
   let objectStore = db.transaction(['video_os'], 'readwrite').objectStore('video_os');

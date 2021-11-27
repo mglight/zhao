@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>太空大战</title>
+    <style>
+      canvas {
+        display: block;
+        margin: 0 auto;
+      }
+      div {
+        width: 5em;
+        position: absolute;
+        top: 10px;
+        left: 950px;
+        color: rgba(255, 255, 255, .5);
+      }
+      button {
+        position: absolute;
+        top: 30px;
+        left: 950px;
+        background-color: rgba(200, 200, 200, .3);
+        border-color: rgba(200, 200, 200, .3);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <canvas></canvas>
+    <div>计时：<span></span></div>
+    <button>换音乐</button>
+
+    <figure class="music1">
+      <audio src="启航2.mp3" controls hidden></audio>
+    </figure>
+    
+    <figure class="music2">
+      <audio src="射击.mp3" controls hidden></audio>
+    </figure>
+
+    <figure class="music3">
+      <audio src="战斗背景2.mp3" controls hidden loop></audio>
+    </figure>
+
+    <figure class="music4">
+      <audio src="战斗失败.mp3" controls hidden></audio>
+    </figure>
+
+    <figure class="music5">
+      <audio src="爆炸2.mp3" controls hidden></audio>
+    </figure>
+
+    <figure class="music6">
+      <audio src="爆炸3.mp3" controls hidden></audio>
+    </figure>
+
+    <figure class="music7">
+      <audio src="胜利.mp3" controls hidden></audio>
+    </figure>
+
+    <script>
+      const canvas = document.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+      const journey = document.querySelector('.music1 audio');
+      journey.play();
+      const shooting = document.querySelector('.music2 audio');
+      const fighting = document.querySelector('.music3 audio');
+      const failure = document.querySelector('.music4 audio');
+      const explodeaudio = document.querySelector('.music5 audio');
+      const explodeAudio = document.querySelector('.music6 audio');
+      const victory = document.querySelector('.music7 audio');
+      const divspan = document.querySelector('div span');
+      const button = document.querySelector('button');
+      
+      let musicBackground = true;
+      button.addEventListener('click', function() {
+        musicBackground = !musicBackground;
+        if(!musicBackground) {
+          fighting.src = "战斗背景.mp3";
+        } else {
+          fighting.src = "战斗背景2.mp3";
+        }
+      });
+
+      canvas.width = window.innerWidth - 1000;
+      canvas.height = window.innerHeight - 20;
+      
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+      // 敌人属性
+      function Circlemany(x, y, radius, color, exists, velx, vely, direct) { 
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.exists = true;
+        this.velx = 0.1;
+        this.vely = 2;
+        this.direct = true;
+    }   // 圆方法
+        Circlemany.prototype.circle = function() {
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+          ctx.fill();
+        };
+        // 炮弹在x轴上产生随机方向，左或右
+        Circlemany.prototype.direction = function() {
+          if(random(1, 2) === 2) {
+            this.direct = false;
+          }
+        };
+        
+        Circlemany.prototype.xdirect = function() {
+          for(let i=0; i<10; i++) {// 炮弹在y轴上随机位置改变方向10次 
+            if(this.y === random(1, 6) * 100) {
+              this.direction();
+            }
+          }
+            // 炮弹左右移动
+            if(this.direct) {
+              this.x += this.velx;
+            } else {
+              this.x -= this.velx;
+            }
+
+        };
+        // 飞船（三角形）的属性
+        function Me(x1, y1, x2, y2, x3, y3, color, velx, vely) {
+          this.x1 = x1;
+          this.y1 = y1;
+          this.x2 = x2;
+          this.y2 = y2;
+          this.x3 = x3;
+          this.y3 = y3;
+          this.color = color;
+          this.velx = 10;
+          this.vely = 10;
+        }
+        // 控制飞船（第1个三角形）的位置
+        Me.prototype.console1 = function() {
+          let _this = this;
+          document.addEventListener('keydown', function(e) {
+            
+              if(e.key === 'a') {
+                _this.x1 -= _this.velx;
+                _this.x2 -= _this.velx;
+                _this.x3 -= _this.velx;
+                if(_this.x1 <= -10) {
+                  _this.x1 += _this.velx;
+                  _this.x2 += _this.velx;
+                  _this.x3 += _this.velx;
+                }
+              } else if(e.key === 'd') {
+                _this.x1 += _this.velx;
+                _this.x2 += _this.velx;
+                _this.x3 += _this.velx;
+                if(_this.x3 >= canvas.width+10) {
+                  _this.x1 -= _this.velx;
+                  _this.x2 -= _this.velx;
+                  _this.x3 -= _this.velx;
+                }
+              } else if(e.key === 'w') {
+                _this.y1 -= _this.vely;
+                _this.y2 -= _this.vely;
+                _this.y3 -= _this.vely;
+                if(_this.y2 <= 0) {
+                  _this.y1 += _this.vely;
+                  _this.y2 += _this.vely;
+                  _this.y3 += _this.vely;
+                }
+              } else if(e.key === 's') {
+                _this.y1 += _this.vely;
+                _this.y2 += _this.vely;
+                _this.y3 += _this.vely;
+                if(_this.y1 >= canvas.height+3) {
+                  _this.y1 -= _this.vely;
+                  _this.y2 -= _this.vely;
+                  _this.y3 -= _this.vely;
+                }
+              }
+          
+          });
+        };
+        // 控制飞船（第2个三角形）的位置
+        Me.prototype.console2 = function() {
+          let _this = this;
+          document.addEventListener('keydown', function(e) {
+            
+              if(e.key === 'a') {
+                _this.x1 -= _this.velx;
+                _this.x2 -= _this.velx;
+                _this.x3 -= _this.velx;
+                if(_this.x1 <= 5) {
+                  _this.x1 += _this.velx;
+                  _this.x2 += _this.velx;
+                  _this.x3 += _this.velx;
+                }
+              } else if(e.key === 'd') {
+                _this.x1 += _this.velx;
+                _this.x2 += _this.velx;
+                _this.x3 += _this.velx;
+                if(_this.x3 >= canvas.width-5) {
+                  _this.x1 -= _this.velx;
+                  _this.x2 -= _this.velx;
+                  _this.x3 -= _this.velx;
+                }
+              } else if(e.key === 'w') {
+                _this.y1 -= _this.vely;
+                _this.y2 -= _this.vely;
+                _this.y3 -= _this.vely;
+                if(_this.y2 <= -10) {
+                  _this.y1 += _this.vely;
+                  _this.y2 += _this.vely;
+                  _this.y3 += _this.vely;
+                }
+              } else if(e.key === 's') {
+                _this.y1 += _this.vely;
+                _this.y2 += _this.vely;
+                _this.y3 += _this.vely;
+                if(_this.y1 >= canvas.height+10) {
+                  _this.y1 -= _this.vely;
+                  _this.y2 -= _this.vely;
+                  _this.y3 -= _this.vely;
+                }
+              }
+          
+          });
+        };
+        // 三角形（飞船）方法
+        Me.prototype.triangle = function() {
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          ctx.moveTo(this.x1, this.y1);
+          ctx.lineTo(this.x2, this.y2);
+          ctx.lineTo(this.x3, this.y3);
+          ctx.fill();
+        };       
+
+        let me1 = new Me(canvas.width/2-20, canvas.height-7, canvas.width/2, canvas.height-25, canvas.width/2+20, canvas.height-7, 'blue'); 
+        let me2 = new Me(canvas.width/2-8, canvas.height, canvas.width/2, canvas.height-35, canvas.width/2+8, canvas.height, 'red');
+        me1.console1();
+        me2.console2();
+        // 文本属性
+        function Textzb(color, font, text, x, y) {
+          this.color = color;
+          this.font = font;
+          this.text = text;
+          this.x = x;
+          this.y = y;
+          this.align = 'center';
+        }
+        // 文本方法
+        Textzb.prototype.textzba = function() {
+          ctx.fillStyle = this.color;
+          ctx.font = this.font; 
+          ctx.fillText(this.text, this.x, this.y);
+          ctx.textAlign = this.align;
+        };
+        
+        let textzbb = new Textzb('white', '30px 微软雅黑', '控制：WASD  攻击：J', 265, canvas.height/2-30); 
+        // 炮弹的属性
+        function Shell(x, y, radius, color, exists, velx, vely, vels) {
+          Circlemany.call(this, x, y, radius, color, exists);
+          this.velx = 10;
+          this.vely = 10;
+          this.vels = 0;
+        }
+        
+        Shell.prototype = Object.create(Circlemany.prototype);
+        Object.defineProperty(Shell.prototype, 'constructor', {
+          value: Shell,
+          enumerable: false, // so that it does not appear in 'for in' loop
+          writable: true });
+        // 控制原始炮弹的位置
+        Shell.prototype.console3 = function() {
+          let _this = this;
+          document.addEventListener('keydown', function(e) {
+              
+              if(e.key === 'j') {
+                _this.vels = 5; 
+              } else if(e.key === 'a' && _this.vels === 0) {
+                _this.x -= _this.velx;
+                if(_this.x <= 10) {
+                  _this.x += _this.velx;
+                }
+              } else if(e.key === 'd' && _this.vels === 0) {
+                _this.x += _this.velx;
+                if(_this.x >= canvas.width-10) {
+                  _this.x -= _this.velx;
+                }
+              } else if(e.key === 'w' && _this.vels === 0) {
+                _this.y -= _this.vely;
+                if(_this.y <= 10) {
+                  _this.y += _this.vely;
+                }
+              } else if(e.key === 's' && _this.vels === 0) {
+                _this.y += _this.vely;
+                if(_this.y >= canvas.height-5) {
+                  _this.y -= _this.vely;
+                }
+              }
+
+          });
+        };
+
+        // 添加炮弹对象，改变炮弹发射音效的频率
+        let shell = [];
+        let shellj = 0;
+        let audioRate = [];
+        audioRate[0] = 0;  
+        document.addEventListener('keydown', makeshell);
+        function makeshell(e) {
+          if(e.key === 'j') {
+            shell[shellj] = new Shell(me1.x2, me1.y2+10, 5, 'yellow'); 
+            shell[shellj].console3();
+            shellj += 1;
+
+            audioRate.push(gamestart);
+            if(shellj > 1) {
+              let interval = (audioRate[shellj-1] - audioRate[shellj-2])/60;
+              if(interval < 0.25) {
+                shooting.playbackRate = 4;
+              } else if(interval < 0.5) {
+                shooting.playbackRate = 3;
+              } else if(interval < 0.75) {
+                shooting.playbackRate = 2;
+              } else if(interval < 1) {
+                shooting.playbackRate = 1;
+              } else {
+                shooting.playbackRate = 1;
+              }
+            }
+
+            shooting.play();
+        }
+      }
+      
+        // 添加敌人对象
+        let m = 0;
+        let s = 20;
+        let cir = [];
+        function circleatt() {     
+          for(let i=m; i<m+s; i++) {
+            cir[i] = new Circlemany(random(0, canvas.width), random(-canvas.height, 0), random(5, 8), 'green');
+            cir[i].direction();
+        }
+      }
+        circleatt();
+        // 产生动画
+        let n = 0;
+        let gamestart = 0;
+        let distanceshell = 0;
+        let distanceme = 0;
+        let gameover = false;
+        let gameovercount = 0;
+        let stopc = false;
+
+        function loop() {
+          ctx.fillStyle = 'rgba(0,0,0,.25)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          
+          for(let i=0; i<shell.length; i++) {
+            if(shell[i].exists) {
+              shell[i].circle();
+              shell[i].y -= shell[i].vels;
+              if(shell[i].y + shell[i].radius <= 0) {
+                shell[i].exists = false;
+              }
+          }
+        } 
+
+          me2.triangle();
+          me1.triangle();
+
+          gamestart += 1;
+
+          // 控制文本
+          textzbb.textzba();
+            if(gamestart > 90) {
+              textzbb.font = '50px 微软雅黑';
+            if(gamestart < 180) {
+              textzbb.text = '准备';
+          } else if(gamestart < 240) {
+              textzbb.text = '3';
+          } else if(gamestart < 300) {
+              textzbb.text = '2';
+          } else if(gamestart < 360) {
+              textzbb.text = '1';
+          } else if(gamestart < 420) {
+              textzbb.text = 'go';
+          } else {
+              textzbb.text = '';
+          }
+        }
+    
+          // "321"结束后敌人来袭
+          if(gamestart >= 420) { 
+
+            journey.pause();
+            fighting.play();
+
+          for(let i=0; i<m+s; i++) {
+            if(cir[i].exists) {
+              cir[i].circle();
+              cir[i].xdirect();
+              cir[i].y += cir[i].vely;
+
+              if(gamestart > 3600) {
+                cir[i].vely = 3;
+                cir[i].velx = 0.2;
+            }
+              if(gamestart > 5400) {
+                cir[i].vely = 4;
+                cir[i].velx = 0.3;
+            } 
+              if(gamestart > 7200) {
+                cir[i].vely = 5;
+                cir[i].velx = 0.4;
+            }
+
+              if(cir[i].y - cir[i].radius >= canvas.height) {
+                cir[i].exists = false;
+            }
+                                                           // cir[i].y-(me1.y2+10)
+              distanceme = Math.sqrt((cir[i].x-me1.x2)**2 + (cir[i].y-me1.y2-10)**2);
+              // 炮弹消灭敌人
+              for(let j=0; j<shell.length; j++) {
+                if(shell[j].exists) {
+                  distanceshell = Math.sqrt((cir[i].x-shell[j].x)**2 + (cir[i].y-shell[j].y)**2); 
+                  if(distanceshell < cir[i].radius + 5) {
+                    cir[i].exists = false;
+                    shell[j].exists = false;
+                    let explodec = new Circlemany((cir[i].x+shell[j].x)/2, (cir[i].y+shell[j].y)/2, cir[i].radius + 10, 'orange');
+                    explodec.circle();
+                    explodeaudio.play();
+                }
+              }
+            }
+              // 被敌人撞到就gameover!
+              if(distanceme < cir[i].radius + 20) {
+                shell[shellj-1] = []; // 去除最后一个球，因为它还受控制
+                me1.velx = me1.vely = me2.velx = me2.vely = 0;
+                document.removeEventListener('keydown', makeshell);
+                let explodem = new Circlemany(me1.x2, me1.y2+10, 40, 'orangered');
+                explodem.circle();
+                explodeAudio.play();
+                cir[i].exists = false;
+                gameover = true;
+              }
+              
+            }
+          }
+
+            if(gamestart <= 3600) {
+              n += 2;   // 不能 n += cir[cir.length-1].velocity 因为只针对本次循环。（个人理解）
+            } else if(gamestart <= 5400) {
+                n += 3;
+            } else if(gamestart <= 7200) {
+                n += 4;
+            } else {
+                n += 5;
+            }    
+
+            // 画布中每次增加一定数量的敌人，所以会不断出现敌人
+            if(n >= canvas.height) {
+                m += s;
+              if(gamestart > 3600) {
+                s = 30;
+            }
+              if(gamestart > 5400) {
+                s = 40;
+            } 
+              if(gamestart > 7200) {
+                s = 50;
+            }
+              circleatt();
+              n = 0;
+          }
+            
+              if(!gameover) {
+                if(gamestart > 10800) {
+                  for(let i=0; i<cir.length; i++) {
+                    cir[i].velx = 0; // 敌人停住了
+                    cir[i].vely = 0;
+                  }
+                  
+                  fighting.pause();
+                  stopc = true;
+                  if(gamestart > 10860) { // 出现胜利标语
+                    victory.play();  
+                    let textzbd = new Textzb('white', '50px 微软雅黑', '胜利', 265, canvas.height/2-30);
+                    textzbd.textzba();
+
+                    for(let i=0; i<cir.length; i++) { // 敌人全部炸毁，显示爆炸区域
+                      if(cir[i].exists) {
+                        cir[i].radius = 0;
+                        let explodecAll = new Circlemany(cir[i].x, cir[i].y, cir[i].radius + 30, 'orange');
+                        if(gamestart > 10960) { // 爆炸区域消失
+                            explodecAll.exists = false;
+                            cir[i].exists = false;
+                      }
+                          if(explodecAll.exists) {
+                            explodecAll.circle();
+                        }
+                      }
+                    }
+      
+                  }
+                }
+              } else {
+                  gameovercount += 1;
+                  if(gameovercount > 60) { // 游戏失败
+                    let textzbc = new Textzb('white', '50px 微软雅黑', 'gameover', 265, canvas.height/2-30);
+                    textzbc.textzba();
+                    fighting.pause();
+                    failure.play();
+                    stopc = true;
+                 }
+              } 
+              if(!stopc) {              
+                stopcount();
+            }
+
+        }// 这个右括号对应 if(gamestart >= 420) {
+
+              requestAnimationFrame(loop);
+
+      }  
+             loop();
+
+             function stopcount() {
+               divspan.textContent = Math.floor(gamestart/60 - 7); // 计时
+             }
+             
+    </script>
+  </body>
+</html>

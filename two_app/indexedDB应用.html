@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDB demo</title>
+    <link rel="stylesheet"> 
+    <style> 
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      .wrap1 {
+        width: 800px;
+        margin: 50px auto 0 auto;
+        padding: 30px;
+        background-color: skyblue;
+        display: grid;
+        grid-template-columns: 2fr 3fr 2fr 2fr;
+        grid-gap: 20px;
+      }
+      .wrap2 {
+        width: 800px;
+        height: 500px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #eee; 
+        position: relative;
+      }
+      #date {
+        background-color: #eee;
+        border: 1px solid #666;
+        border-radius: 3px;
+      }
+      #diary {
+        resize: none;
+        width: 100%;
+        height: 95%;
+      }
+      .buttons {
+        position: absolute;
+        right: 60px;
+        bottom: 10px;
+      }
+      .buttons button:nth-of-type(3) {
+        display: none;
+      }
+      ul {
+        list-style-type: none;
+        width: 200px;
+        overflow-y: scroll;
+        display: none;
+      }
+      p {
+        width: 75%;
+        height: 95%;
+        background-color: white;
+        margin-left: auto;
+        overflow-y: scroll;
+        text-indent: 10em;
+        display: none;
+      }
+      .buttondate {
+        width: 150px;
+        height: 30px;
+        background-color: white;
+      }
+    </style>
+    <script src="diary.js" defer></script>   
+  </head>
+  <body> 
+    <form>
+    <div class="wrap1">
+      <h1>日记</h1>
+      <div>
+        <label for="date">日期：</label>
+        <input id="date" name="date" type="date">
+      </div>
+ 
+      <div>
+        <label for="weather">天气：</label>
+        <select id="weather" name="weather">
+          <option>晴</option>
+          <option>太阳很大</option>
+          <option>小雨</option>
+          <option>大雨</option>
+          <option>雷雨</option>
+          <option>阴</option>
+          <option>多云</option>
+          <option>下雪</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="mood">心情：</label>
+        <select id="mood" name="mood">
+          <option>开心</option>
+          <option>难过</option>
+          <option>平淡</option>
+          <option>忧郁</option>
+          <option>舒适</option>
+          <option>兴奋</option>
+          <option>痛苦</option>
+        </select>
+      </div>
+    </div>
+    <div class="wrap2">
+      <textarea id="diary" name="diary" autofocus placeholder="记录..."></textarea>
+        <ul></ul>
+        <p></p>
+      <div class="buttons">
+        <button type="submit">保存</button>
+        <button type="button">查看</button>
+        <button type="button">删除</button>
+        <button type="button">返回</button>
+      </div>
+    </div>
+    </form> 
+  </body>
+</html>

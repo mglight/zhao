@@ -68,25 +68,46 @@ header nav ul {
 header nav ul li a {
     border: 0;
 }
-header nav ul li a .xiahx1 {
-    width: 2.1em;
-    height: 1px;
+header nav ul li .web_link {
     margin: 0 auto;
 }
-header nav ul li a .xiahx3 {
-    width: 1.1em;
-    height: 1px;
-    margin: 0 auto;
-}
-header nav ul li a .xiahx2 {
-    width: 3.2em;
-    height: 1px;
-    margin: 0 auto;
-}
-header nav ul li a .x div {
+header nav ul li .underline {
     width: 0;
-    height: 1px;
-    border-bottom: 1px solid deepskyblue;
+    height: 0;
+    border-top: 1px solid black;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+header nav ul li .a {
+    width: 2.2em;
+}
+header nav ul li .b {
+    width: 2.2em;
+}
+header nav ul li .c {
+    width: 3.2em;
+}
+header nav ul li .d {
+    width: 1.2em;
+}
+header nav ul li .e {
+    width: 1.2em;
+}
+@keyframes shorter {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0;
+    }
+}
+@keyframes longer {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
 }
 header picture img {
     width: 100%;

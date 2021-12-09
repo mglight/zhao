@@ -108,36 +108,18 @@ function myphoto() {
     myimage.title = "https://unsplash.com/photos/-XW35nYkRnk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink";
   }
 }
-let a = document.querySelectorAll('li a');
-let xiahx = document.querySelectorAll('li .x div');
-let m = 100;
-let n = 0 ;
-      for(let i=0; i<a.length; i++) {
-      a[i].addEventListener('pointerleave', loop); 
-        function loop() {
-          if(m>0) {
-            m -= 5; 
-            xiahx[i].style.width = m + '%';
-            requestAnimationFrame(loop);
-            if(m === 0) {
-              n = 0;
-            }
-        } 
-      }
-      
-      
-      a[i].addEventListener('pointerover', loopa); 
-        function loopa() {
-          if(n<100) {
-            n += 5;
-            xiahx[i].style.width = n + '%';
-            requestAnimationFrame(loopa);
-            if(n === 100) {
-              m = 100;
-            }
-        }   
-      } 
-    }
+/* 设置动态下划线 */
+let navlink = document.querySelectorAll('nav li .web_link');
+let underline = document.querySelectorAll('nav li .underline');
+for(let i=0; i<navlink.length; i++) {
+  navlink[i].addEventListener('pointerleave', function() {
+    underline[i].style.animationName = 'shorter';
+});
+  navlink[i].addEventListener('pointerover', function() {
+    underline[i].style.borderTopColor = 'deepskyblue';
+    underline[i].style.animationName = 'longer';
+});
+} 
 if('serviceWorker' in navigator) {
     navigator.serviceWorker
              .register('/zhao/scripts/mglightsite.js')

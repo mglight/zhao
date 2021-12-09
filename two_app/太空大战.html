@@ -4,21 +4,28 @@
     <meta charset="utf-8">
     <title>太空大战</title>
     <style>
-      canvas {
-        display: block;
-        margin: 0 auto;
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
       }
-      div {
-        width: 5em;
+      .wrap {
+        width: 400px;
+        height: 600px;
+        margin: 10px auto 0 auto;
+        position: relative;
+      }
+      p {
+        width: 4em;
         position: absolute;
-        top: 10px;
-        left: 950px;
+        top: 0;
+        right: 1em;
         color: rgba(255, 255, 255, .5);
       }
       button {
         position: absolute;
-        top: 30px;
-        left: 950px;
+        top: 2em;
+        right: 1em;
         background-color: rgba(200, 200, 200, .3);
         border-color: rgba(200, 200, 200, .3);
       }
@@ -27,9 +34,11 @@
 
   <body>
 
-    <canvas></canvas>
-    <div>计时：<span></span></div>
-    <button>换音乐</button>
+    <div class="wrap">
+      <canvas></canvas>
+      <p>计时:&nbsp;<span></span></p>
+      <button>换音乐</button>
+    </div>
 
     <figure class="music1">
       <audio src="启航2.mp3" controls hidden></audio>
@@ -70,7 +79,7 @@
       const explodeaudio = document.querySelector('.music5 audio');
       const explodeAudio = document.querySelector('.music6 audio');
       const victory = document.querySelector('.music7 audio');
-      const divspan = document.querySelector('div span');
+      const pspan = document.querySelector('p span');
       const button = document.querySelector('button');
       
       let musicBackground = true;
@@ -83,8 +92,8 @@
         }
       });
 
-      canvas.width = window.innerWidth - 1000;
-      canvas.height = window.innerHeight - 20;
+      canvas.width = 400;
+      canvas.height = 600;
       
       function random(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -248,8 +257,8 @@
           this.color = color;
           this.font = font;
           this.text = text;
-          this.x = x;
-          this.y = y;
+          this.x = 200;
+          this.y = 300;
           this.align = 'center';
         }
         // 文本方法
@@ -260,7 +269,7 @@
           ctx.textAlign = this.align;
         };
         
-        let textzbb = new Textzb('white', '30px 微软雅黑', '控制：WASD  攻击：J', 265, canvas.height/2-30); 
+        let textzbb = new Textzb('white', '30px 微软雅黑', '控制：WASD  攻击：J'); 
         // 炮弹的属性
         function Shell(x, y, radius, color, exists, velx, vely, vels) {
           Circlemany.call(this, x, y, radius, color, exists);
@@ -491,7 +500,7 @@
                   stopc = true;
                   if(gamestart > 10860) { // 出现胜利标语
                     victory.play();  
-                    let textzbd = new Textzb('white', '50px 微软雅黑', '胜利', 265, canvas.height/2-30);
+                    let textzbd = new Textzb('white', '50px 微软雅黑', '胜利');
                     textzbd.textzba();
 
                     for(let i=0; i<cir.length; i++) { // 敌人全部炸毁，显示爆炸区域
@@ -513,7 +522,7 @@
               } else {
                   gameovercount += 1;
                   if(gameovercount > 60) { // 游戏失败
-                    let textzbc = new Textzb('white', '50px 微软雅黑', 'gameover', 265, canvas.height/2-30);
+                    let textzbc = new Textzb('white', '50px 微软雅黑', 'gameover');
                     textzbc.textzba();
                     fighting.pause();
                     failure.play();
@@ -532,7 +541,7 @@
              loop();
 
              function stopcount() {
-               divspan.textContent = Math.floor(gamestart/60 - 7); // 计时
+               pspan.textContent = Math.floor(gamestart/60 - 7); // 计时
              }
              
     </script>

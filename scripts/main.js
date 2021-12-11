@@ -28,6 +28,15 @@ if(localStorage.getItem('name')) {
 } else {
   identity();
 } 
+
+let mylogo = document.querySelector('header .logo img');
+mylogo.addEventListener('pointerover', function() {
+      mylogo.style.animationName = 'clockwise';
+});
+mylogo.addEventListener('pointerleave', function() {
+      mylogo.style.animationName = 'counterclockwise';
+});
+
 let magenta = document.querySelector('.color p img:nth-of-type(1)');
 let yellow = document.querySelector('.color p img:nth-of-type(2)');
 let cyan = document.querySelector('.color p img:nth-of-type(3)');

@@ -50,6 +50,48 @@ header .logo {
 }
 header .logo img {
     height: 1em;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes clockwise {
+    from {
+        transform: rotate(0turn) scale(1);
+    }
+    20% {
+        transform: rotate(0.01turn) scale(1.02);
+    }
+    40% {
+        transform: rotate(-0.01turn) scale(1.04);
+    }
+    60% {
+        transform: rotate(0.01turn) scale(1.06);
+    }
+    80% {
+        transform: rotate(-0.01turn) scale(1.08);
+    }
+    to {
+        transform: rotate(0turn) scale(1.1);
+    }
+}
+@keyframes counterclockwise {
+    from {
+        transform: rotate(0turn) scale(1.1);
+    }
+    20% {
+        transform: rotate(-0.01turn) scale(1.08);
+    }
+    40% {
+        transform: rotate(0.01turn) scale(1.06);
+    }
+    60% {
+        transform: rotate(-0.01turn) scale(1.04);
+    }
+    80% {
+        transform: rotate(0.01turn) scale(1.02);
+    }
+    to {
+        transform: rotate(0turn) scale(1);
+    }
 }
 header nav {
     padding: .75em 0;

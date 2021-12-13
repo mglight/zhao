@@ -117,18 +117,6 @@ function myphoto() {
     myimage.title = "https://unsplash.com/photos/-XW35nYkRnk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink";
   }
 }
-/* 设置动态下划线 */
-let navlink = document.querySelectorAll('nav li .web_link');
-let underline = document.querySelectorAll('nav li .underline');
-for(let i=0; i<navlink.length; i++) {
-  navlink[i].addEventListener('pointerleave', function() {
-    underline[i].style.animationName = 'shorter';
-});
-  navlink[i].addEventListener('pointerover', function() {
-    underline[i].style.borderTopColor = 'deepskyblue';
-    underline[i].style.animationName = 'longer';
-});
-} 
 if('serviceWorker' in navigator) {
     navigator.serviceWorker
              .register('/zhao/scripts/mglightsite.js')

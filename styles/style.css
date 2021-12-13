@@ -114,13 +114,6 @@ header nav ul li a {
 header nav ul li .web_link {
     margin: 0 auto;
 }
-header nav ul li .underline {
-    width: 0;
-    height: 0;
-    border-top: 1px solid black;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-}
 header nav ul li .a {
     width: 2.2em;
 }
@@ -136,21 +129,15 @@ header nav ul li .d {
 header nav ul li .e {
     width: 1.2em;
 }
-@keyframes shorter {
-    from {
-      width: 100%;
-    }
-    to {
-      width: 0;
-    }
+header nav ul li .underline {
+    width: 0;
+    height: 0;
+    border-top: 1px solid black;
+    transition: width 0.3s;
 }
-@keyframes longer {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
+header nav ul li .web_link:hover .underline {
+    width: 100%;
+    border-color: deepskyblue;
 }
 header picture img {
     width: 100%;

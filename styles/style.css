@@ -52,6 +52,7 @@ header .logo img {
     height: 1em;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    transform-origin: 10px 20px;
 }
 @keyframes clockwise {
     from {

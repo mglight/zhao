@@ -171,6 +171,7 @@ section .color p img {
     width: 1em;
     height: 1em;
     margin: 0 2px;
+    vertical-align: -6%;
     display: inline-block;
 }
 section .hole h5 {

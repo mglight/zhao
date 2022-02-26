@@ -1,0 +1,405 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'bpreplayregular';
+    src: url('../fonts/bpreplay-webfont.woff2') format('woff2'),
+         url('../fonts/bpreplay-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bpreplaybold';
+    src: url('../fonts/bpreplaybold-webfont.woff2') format('woff2'),
+         url('../fonts/bpreplaybold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+	font: 16px/1.2 bpreplayregular, 微软雅黑, sans-serif;
+    background-color: rgb(41, 20, 1);
+    color: white;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+a:link {
+    color: inherit;
+    text-decoration: none;
+}
+a:visited {
+    color: inherit;
+}
+
+a:hover {
+	color: rgb(255, 80, 0);
+    text-decoration: underline;
+}
+a:focus,
+button:focus {
+    outline: none;
+    color: white;
+    background-color: rgb(255, 80, 0);
+}
+a:active {
+    
+}
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    border: 0;
+}
+input, select, textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+button {
+    background-color: transparent;
+    color: inherit;
+}
+/* 消除img中的空隙，还不清楚什么原因 */
+img {
+    display: flex; 
+}
+ul {
+    list-style-type: none;
+}
+body {
+	width: 1024px;  /* 64em */
+	height: 768px;  /* 48em */
+	margin: 0 auto;
+}
+header {
+	display: flex;
+	padding: 2em 3em 0 3em;
+	height: 9em;
+	background: url('../images/backgroundimages/Oscar-Sutton在Unsplash上的照片_01.jpg') top left/100% no-repeat;
+}
+header div {
+	width: 40%;
+}
+header nav {
+	width: 60%;
+	padding-top: 3em;
+	display: flex;
+}
+header div p {
+	font-family: 'bpreplaybold';
+	font-size: 3em;
+	height: 1.2em;
+	padding-left: 1.2em;
+	background: url('../images/笑脸2.svg') top left/1.2em no-repeat;
+	transition: transform 0.5s;
+}
+header div p:hover {
+    transform: rotate(10deg);
+}
+header nav ul {
+	display: flex;
+	margin-left: auto;
+}
+header nav li {
+	font-size: 1.6em;
+	height: 2em;
+	line-height: 2em;
+	padding: 0 0.5em;
+}
+header nav li a {
+	height: 100%;
+	display: block;
+}
+header nav form {
+	display: flex;
+}
+header nav input {
+	font-size: 0.6em;
+	width: 6em;
+	height: 2em;
+	border-radius: 1em;
+	text-indent: 0.7em;
+}
+header nav input:focus {
+	border: 2px solid rgb(255, 80, 0);
+}
+header nav button {
+	width: 1.2em;
+	height: 1.2em;
+	display: block;
+	background: url('../images/搜索.svg') center/1em no-repeat;
+	transition: transform 1s;
+}
+header nav button:hover {
+    transform: rotate(360deg);
+}
+header nav button:focus {
+    background: url('../images/搜索2.svg') center/1em no-repeat;
+    background-color: rgb(255, 80, 0);
+}
+header nav li:last-child,
+header nav li:last-child img {
+    display: none;
+}
+
+main {
+	height: 30em;
+	display: flex;
+}
+/* article1 */
+article:nth-child(1) {
+	width: 60%;
+	height: 100%;
+	background: url('../images/backgroundimages/Oscar-Sutton在Unsplash上的照片_03_04.png') top left/100% no-repeat;
+	overflow: hidden;
+}
+article:nth-child(1) > div {
+	height: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	transition: left 1s;
+}
+section {
+	width: 38.4em;
+	padding: 6em 0 0 3em;
+	position: absolute;
+	top: 0;
+}
+section p,
+section ul {
+	padding: 1em;
+	word-break: break-all;
+}
+section a:link {
+	color: rgb(255, 80, 0);
+}
+section a:hover {
+	text-decoration: underline;
+}
+section a:focus {
+	outline: none;
+	color: white;
+	background-color: rgb(255, 80, 0);
+}
+section:nth-child(1) {
+	left: 0;
+}
+section:nth-child(2) {
+	left: 100%;
+}
+section:nth-child(3) {
+	left: 200%;
+}
+section:nth-child(4) {
+	left: 300%;
+}
+section:nth-child(5) {
+	left: 400%;
+}
+section:nth-child(1) h1 {
+	font-family: '微软雅黑';
+    font-size: 3em;
+    text-shadow: 2px 2px 2px black;
+}
+section:nth-child(1) span {
+	color: rgb(255, 80, 0);
+}
+section:nth-child(1) p {
+	margin-top: 0.5em;
+}
+section:nth-child(1) div {
+	width: 4.5em;
+	height: 2.4em;
+	line-height: 2.4em;
+	text-align: center;
+	margin: 1em 0 0 1em;
+	border-radius: 1.2em;
+	background-color: rgb(255, 80, 0);
+	box-shadow: 1px 1px 1px black;
+}
+section:nth-child(3) img {
+	height: 100%;
+	margin: 0 auto;
+}
+/* article2 */
+article:nth-child(2) {
+	width: 40%;
+	position: relative;
+	overflow: hidden;
+	background: url('../images/backgroundimages/Oscar-Sutton在Unsplash上的照片_03_07.png') top left/100% no-repeat;
+}
+article:nth-child(2) div {
+	width: 100%;
+	height: 100%;
+}
+article:nth-child(2) div:nth-child(1) {
+	display: none;
+}
+article:nth-child(2) div:nth-child(2) img {
+	position: absolute;
+	bottom: 0;
+	right: 3em;
+	transition: width 1s;
+}
+article:nth-child(2) div:nth-child(2) img.myphoto_display {
+	width: 64%;
+}
+article:nth-child(2) div:nth-child(2) img.myphoto_hidden {
+	width: 0;
+}
+article:nth-child(2) div:nth-child(3) {
+	width: 100%;
+	position: absolute;
+	top: 0;
+    left: 0;
+    padding-top: 3em;
+    transition: font-size 1s;
+}
+article:nth-child(2) div.mycollection_hidden {
+    font-size: 0;
+}
+article:nth-child(2) div.mycollection_display {
+    font-size: 1em;   
+}
+article:nth-child(2) div:nth-child(3) ul {
+	height: 30%;
+}
+article:nth-child(2) div:nth-child(3) div {
+	height: 70%;
+    overflow-y: auto;
+}
+article:nth-child(2) div:nth-child(3) div video {
+	width: 18.75em;
+	display: block;
+    margin: 1em auto 0 auto;
+}
+article:nth-child(2) div:nth-child(3) div p {
+	margin-top: 1em;
+}
+article:nth-child(2) div:nth-child(3) div p a:link {
+	color: rgb(255, 80, 0);
+} 
+article:nth-child(2) div:nth-child(3) div p a:hover {
+	text-decoration: underline;
+} 
+article:nth-child(2) div:nth-child(3) div p a:focus {
+	outline: none;
+	color: white;
+	background-color: rgb(255, 80, 0);
+}
+
+footer {
+	height: 9em;
+	padding: 3em 3em 1em 3em;
+	background: url('../images/backgroundimages/Oscar-Sutton在Unsplash上的照片_03.png') top left/100% no-repeat;
+}
+footer li:nth-child(2),
+footer li:nth-child(3) {
+    display: none;
+}
+footer ul {
+	width: 40%;
+	margin-top: 1.6em;
+}
+address {
+	display: flex;
+}
+address div:nth-child(1) {
+	width: 80%;
+	height: 1.2em;
+}
+address div:nth-child(2) {
+	width: 20%;
+	height: 1.2em;
+}
+address a,
+address button {
+	display: block;
+}
+address div:nth-child(1) {
+    display: flex;
+}
+address div:nth-child(1) a:nth-child(1) {
+	width: 87.5%;
+	height: 100%;
+}
+address div:nth-child(1) a:nth-child(1) p {
+	padding-left: 1.2em;
+	background: url('../images/邮箱.svg') top left/1.2em no-repeat;
+}
+address div:nth-child(1) a:nth-child(1):hover p {
+	background-image: url('../images/邮箱2.svg');
+}
+address div:nth-child(1) a:nth-child(2) {
+	width: 12.5%;
+	height: 100%;
+}
+address div:nth-child(1) a:nth-child(2) img {
+	width: 1.2em;
+	margin: 0 auto;
+}
+address div:nth-child(2) {
+	position: relative;
+	display: flex;
+}
+address div:nth-child(2) button {
+	width: 50%;
+    height: 100%;
+}
+address div:nth-child(2) button:nth-of-type(1) {
+    background: url('../images/地址.svg') center/1.2em no-repeat;
+}
+address div:nth-child(2) button:nth-of-type(2) {
+    background: url('../images/手机.svg') center/1.2em no-repeat;
+}
+address div:nth-child(2) button:nth-of-type(1):hover {
+	background-image: url('../images/地址2.svg');
+}
+address div:nth-child(2) button:nth-of-type(2):hover {
+	background-image: url('../images/手机2.svg');
+}
+address div:nth-child(2) button:nth-of-type(1):focus {
+    background: url('../images/地址.svg') center/1.2em no-repeat;
+    background-color: rgb(255, 80, 0);
+}
+address div:nth-child(2) button:nth-of-type(2):focus {
+    background: url('../images/手机.svg') center/1.2em no-repeat;
+    background-color: rgb(255, 80, 0);
+}
+address div:nth-child(2) p {
+	width: 8em;
+	text-align: center;
+	position: absolute;
+	top: 100%;
+}
+address div:nth-child(2) p:nth-of-type(1) {
+	right: 50%;
+} 
+address div:nth-child(2) p:nth-of-type(2) {
+	left: 50%;
+} 
+address div:nth-child(2) p.address_hidden,
+address div:nth-child(2) p.tel_hidden {
+	display: none;
+}
+address div:nth-child(2) p.address_display,
+address div:nth-child(2) p.tel_display {
+	display: block;
+}
+footer > div {
+	display: flex;
+	float: right;
+	margin-top: 1em;
+}
+footer > div a {
+	margin-left: 0.5em;
+}
+footer > div img {
+    width: 1.2em;
+}
+footer > p {
+	margin-top: 1em;
+}

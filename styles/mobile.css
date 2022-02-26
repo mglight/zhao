@@ -1,0 +1,413 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'bpreplayregular';
+    src: url('../fonts/bpreplay-webfont.woff2') format('woff2'),
+         url('../fonts/bpreplay-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bpreplaybold';
+    src: url('../fonts/bpreplaybold-webfont.woff2') format('woff2'),
+         url('../fonts/bpreplaybold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+	font: 16px/1.2 bpreplayregular, 微软雅黑, sans-serif;
+    background-color: rgb(41, 20, 1);
+    color: white;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+a:visited {
+    color: inherit;
+}
+a:focus {
+    
+}
+a:hover {
+    
+}
+a:active {
+    
+}
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    border: 0;
+}
+input, select, textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+button {
+    background-color: transparent;
+    color: inherit;
+}
+/* 消除img中的空隙，还不清楚什么原因 */
+img {
+    display: flex; 
+}
+ul {
+    list-style-type: none;
+}
+body {
+    min-width: 360px;
+    max-width: 428px;
+}
+header {
+    position: relative;
+    z-index: 2; /* 改变z轴顺序，使header在main上面 */
+}
+header div {
+    padding: 1em 0;
+    background-color: rgb(41, 20, 1);
+    display: flex;
+    position: relative;
+    z-index: 1; /* 改变z轴顺序，使div在nav上面 */
+}
+header div p {
+    font-family: 'bpreplaybold';
+    font-size: 2.5em;
+    padding-left: 1.2em;
+    margin: 0 auto;
+    background: url('../images/笑脸2.svg') left center/1.2em no-repeat;
+}
+header nav {
+    width: 100%;
+    background-color: rgb(41, 20, 1);
+    position: absolute;
+    left: 0;
+    bottom: -1.8em;
+}
+header li {
+    height: 1.8em;
+}
+header li:nth-child(1) a,
+header li:nth-child(2) a,
+header li:nth-child(3) a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    font-size: 1.5em;
+    text-align: center;
+}
+header li:nth-child(1) a:active,
+header li:nth-child(2) a:active,
+header li:nth-child(3) a:active {
+    background-color: rgb(255, 80, 0);
+}
+header li:nth-child(4) {
+    height: 2.4em;
+    padding: 0.3em 0;
+    display: flex;
+}
+/* 左边的内边距留出1.8em是为了和右边的按钮对齐，这样搜索框就居中了 */
+header li:nth-child(4) form {
+    padding-left: 1.8em;
+    margin: 0 auto;
+    display: flex;
+}
+header li:nth-child(4) input {
+    border-radius: 0.9em;
+    text-indent: 0.7em;
+    width: 12em;
+    height: 1.8em;
+}
+header li:nth-child(4) input:focus {
+    border: 2px solid rgb(255, 80, 0);
+}
+header li:nth-child(4) button {
+    width: 1.8em;
+    height: 1.8em;
+    background: url('../images/搜索.svg') right center/1.4em no-repeat;
+}
+/* 改变下拉图标的旋转方向就能动态更新导航栏的下拉与上提状态 */
+header li:nth-child(5) img {
+    height: 70%;
+    margin: 0 auto;
+    transition: 0.5s transform 0.5s;
+}
+header li:nth-child(5) img.btn_down {
+    transform: rotate(180deg);
+}
+header li:nth-child(5) img.btn_up {
+    transform: rotate(0deg);
+}
+  
+main {
+    margin-top: 2em;
+    padding-top: 2em;
+    position: relative;
+    z-index: 1; /* 顺序在footer之上，可以遮挡footer ul */
+    background-color: rgb(41, 20, 1); 
+}
+/* article1 */
+article:nth-child(1) > div {
+    height: 20em;
+    overflow: auto; 
+    position: relative;
+}
+article:nth-child(1) p,
+article:nth-child(1) ul {
+    padding: 1em 0 0 1em;
+    word-break: break-all;
+}
+article:nth-child(1) section {
+    width: 100%;
+    padding: 0 0.5em;
+    background-color: rgb(41, 20, 1);
+    position: absolute;
+    top: 0;
+}
+article:nth-child(1) section a:link,
+#My a:link {
+    color: blue;
+    text-decoration: underline;
+}
+article:nth-child(1) section a:visited,
+#My a:visited {
+    color: rebeccapurple;
+}
+article:nth-child(1) section a:active,
+#My a:active {
+    color: rgb(255, 80, 0);
+}
+article:nth-child(1) section:nth-child(1) {
+    left: 0;
+}
+article:nth-child(1) section:nth-child(2) {
+    left: 100%;
+}
+article:nth-child(1) section:nth-child(3) {
+    left: 200%;
+}
+article:nth-child(1) section:nth-child(4) {
+    left: 300%;
+}
+article:nth-child(1) section:nth-child(5) {
+    left: 400%;
+}
+article:nth-child(1) section:nth-child(1) h1 {
+    font-family: '微软雅黑';
+    font-size: 2em;
+    text-shadow: 2px 2px 3px black;
+}
+article:nth-child(1) section:nth-child(1) h1 span {
+    color: rgb(255, 80, 0);
+}
+article:nth-child(1) section:nth-child(1) div {
+    width: 4.2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    border-radius: 1em;
+    margin: 1em 0 0 1em;
+    background-color: rgb(255, 80, 0);
+    box-shadow: 1px 1px 2px black;
+}
+article:nth-child(1) section:nth-child(3) img {
+    margin: 0 auto;
+}
+
+/* article2 */
+article:nth-child(2) {
+    height: 100vw;
+    overflow: hidden;
+    position: relative; 
+    top: -1em;
+    z-index: 1; /* 顺序在article1之上，可以遮挡article1的水平滚动条 */
+}
+article:nth-child(2) div {
+    width: 100%;
+    height: 100%;
+    padding: 2em 0.5em 0 0.5em;
+    background-color: rgb(41, 20, 1);
+}
+article:nth-child(2) div:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: -70%;
+}
+article:nth-child(2) div:nth-child(2) img {
+    width: 70%;
+    margin-left: auto;
+}
+article:nth-child(2) div:nth-child(3) {
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+article:nth-child(2) div:nth-child(3) ul {
+    list-style-type: decimal;
+    margin: 0 0 1em 2em;
+}
+article:nth-child(2) div:nth-child(3) li {
+    margin-bottom: 0.1em;
+}
+article:nth-child(2) div:nth-child(3) div {
+    width: 100%;
+    height: 70%;
+    padding: 0;
+    overflow-y: auto;
+}
+article:nth-child(2) div:nth-child(3) video {
+    display: block;
+    margin: 0 auto 1em auto;
+}
+article:nth-child(2) div:nth-child(3) p {
+    margin-bottom: 1em;
+}
+
+footer {
+    position: relative;
+}
+footer ul {
+    width: 100%;
+    background-color: rgb(41, 20, 1);
+    position: absolute;
+    left: 0;
+    transition: top 0.5s;
+}
+footer ul.footer_ul_down {
+    top: -6em;
+}
+footer ul.footer_ul_up {
+    top: 0;
+}
+footer li:nth-child(1) {
+    height: 3.6em;
+}
+footer li:nth-child(2) {
+    height: 2.4em;
+}
+footer li:nth-child(3) {
+    height: 1.8em;
+}
+footer address div {
+    height: 1.8em;
+}
+footer address div:nth-child(1) { 
+    display: flex;
+}
+footer address div:nth-child(1) a:nth-child(1) {
+    width: 70%;
+    height: 100%;
+    display: flex;
+}
+footer address div:nth-child(1) a:nth-child(2) {
+    width: 30%;
+    height: 100%;
+}
+footer address div:nth-child(1) a:nth-child(1) p {
+    line-height: 1.8em;
+    padding-left: 1.8em;
+    margin: 0 auto;
+    background: url('../images/邮箱.svg') 0.15em center/1.5em no-repeat;
+}
+footer address div:nth-child(1) a:nth-child(2) img {
+    height: 1.5em;
+    margin: 0.15em auto;
+}
+
+footer address div:nth-child(2) {
+    position: relative;
+    display: flex;
+}
+footer address div:nth-child(2) button {
+    width: 50%;
+    height: 100%;
+    display: block;
+}
+footer address div:nth-child(2) button:nth-of-type(1) {
+    background: url('../images/地址.svg') center/1.5em no-repeat;
+}
+footer address div:nth-child(2) button:nth-of-type(2) {
+    background: url('../images/手机.svg') center/1.5em no-repeat;
+}
+footer address div:nth-child(2) p {
+    width: 50%;
+    line-height: 1.8em;
+    text-align: center;
+    background-color: rgb(255, 80, 0);
+    position: absolute;
+    top: 100%;
+}
+footer address div:nth-child(2) p:nth-of-type(1) {
+    left: 0;
+}
+footer address div:nth-child(2) p:nth-of-type(2) {
+    right: 0;
+}
+footer address div:nth-child(2) p:nth-of-type(2) a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+footer address div:nth-child(2) p.address_hidden,
+footer address div:nth-child(2) p.tel_hidden {
+    display: none;
+}
+footer address div:nth-child(2) p.address_display,
+footer address div:nth-child(2) p.tel_display {
+    display: block;
+}
+
+footer li:nth-child(2) a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+footer ul a:active,
+footer address div:nth-child(2) button:active {
+    background-color: rgb(255, 80, 0);
+}
+footer li:nth-child(2) a p {
+    font-family: 'bpreplaybold';
+    font-size: 2em;
+    padding-left: 1.2em;
+    margin: 0 auto;
+    background: url('../images/笑脸2.svg') top left/1.2em no-repeat;
+}
+footer li:nth-child(3) button {
+    width: 100%;
+    height: 100%;
+}
+footer li:nth-child(3) button img {
+    height: 70%;
+    margin: 0 auto;
+    transition: 0.5s transform 0.5s;
+}
+footer li:nth-child(3) button img.btn_down {
+    transform: rotate(-180deg);
+}
+footer li:nth-child(3) button img.btn_up {
+    transform: rotate(0deg);
+}
+footer > div {
+    display: flex;
+    padding: 3em 0 1em 1em;
+}
+footer > div img {
+    width: 1.2em;
+    height: 1.2em;
+}
+footer > div a:nth-child(2) img {
+    margin-left: 0.5em;
+}
+footer > p {
+    padding: 0 0 2em 1em;
+}
